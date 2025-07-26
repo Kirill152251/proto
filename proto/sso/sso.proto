@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/timestamp.proto";
+
 package auth;
 
 option go_package = "todo.sso.v1;ssov1";
@@ -7,7 +9,33 @@ option go_package = "todo.sso.v1;ssov1";
 service Auth {
     rpc Register(RegisterRequest) returns (RegisterResponse);
     rpc Login(LoginRequest) returns (LoginResponse);
+}
+
+service UserService {
     rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
+    rpc Info(InfoRequest) returns (InfoResponse);
+    rpc Update(UpdateRequest) returns (InfoResponse);
+}
+
+message UpdateRequest {
+    string avatar_key = 1;
+    bool is_verified = 2;
+    bool is_active = 3;
+}
+
+message InfoRequest {
+    string username = 1;
+}
+
+message InfoResponse {
+    string id = 1;
+    string username = 2;
+    string email = 3;
+    string avatar_key = 4;
+    bool is_admin = 5;
+    bool is_verified = 6;
+    bool is_active = 7; 
+    google.protobuf.Timestamp created_at = 8;
 }
 
 message RegisterRequest {
