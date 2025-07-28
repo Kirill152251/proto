@@ -27,7 +27,6 @@ type UpdateRequest struct {
 	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
 	AvatarKey     string                 `protobuf:"bytes,2,opt,name=avatar_key,json=avatarKey,proto3" json:"avatar_key,omitempty"`
 	IsVerified    bool                   `protobuf:"varint,3,opt,name=is_verified,json=isVerified,proto3" json:"is_verified,omitempty"`
-	IsActive      bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -79,13 +78,6 @@ func (x *UpdateRequest) GetAvatarKey() string {
 func (x *UpdateRequest) GetIsVerified() bool {
 	if x != nil {
 		return x.IsVerified
-	}
-	return false
-}
-
-func (x *UpdateRequest) GetIsActive() bool {
-	if x != nil {
-		return x.IsActive
 	}
 	return false
 }
@@ -534,14 +526,13 @@ var File_sso_sso_proto protoreflect.FileDescriptor
 
 const file_sso_sso_proto_rawDesc = "" +
 	"\n" +
-	"\rsso/sso.proto\x12\x04auth\x1a\x1fgoogle/protobuf/timestamp.proto\"\x88\x01\n" +
+	"\rsso/sso.proto\x12\x04auth\x1a\x1fgoogle/protobuf/timestamp.proto\"k\n" +
 	"\rUpdateRequest\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x1d\n" +
 	"\n" +
 	"avatar_key\x18\x02 \x01(\tR\tavatarKey\x12\x1f\n" +
 	"\vis_verified\x18\x03 \x01(\bR\n" +
-	"isVerified\x12\x1b\n" +
-	"\tis_active\x18\x04 \x01(\bR\bisActive\")\n" +
+	"isVerified\")\n" +
 	"\vInfoRequest\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\"\x83\x02\n" +
 	"\fInfoResponse\x12\x0e\n" +
