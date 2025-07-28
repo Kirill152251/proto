@@ -18,9 +18,10 @@ service UserService {
 }
 
 message UpdateRequest {
-    string avatar_key = 1;
-    bool is_verified = 2;
-    bool is_active = 3;
+    string username = 1;
+    string avatar_key = 2;
+    bool is_verified = 3;
+    bool is_active = 4;
 }
 
 message InfoRequest {
